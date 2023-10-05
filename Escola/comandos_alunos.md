@@ -204,7 +204,7 @@ INSERT INTO alunos (nome, data_de_nascimento,primeira_nota, segunda_nota, curso_
 ### 1) Faça uma consulta que mostre os alunos que nasceram antes do ano 2009
 ```sql
 
-SELECT data_de_nascimento FROM alunos WHERE data_de_nascimento < 2009;
+SELECT nome, data_de_nascimento FROM alunos WHERE data_de_nascimento < 2009;
 
 ```
 ![Relatório 1](resultados/relatorio1.jpg)
