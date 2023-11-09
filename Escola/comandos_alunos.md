@@ -206,7 +206,13 @@ INSERT INTO alunos (nome, data_de_nascimento,primeira_nota, segunda_nota, curso_
 ### 1) Faça uma consulta que mostre os alunos que nasceram antes do ano 2009
 ```sql
 
--- 5ª Digitação (SQL para criar a consulta acima)
+SELECT nome, data_de_nascimento 
+FROM alunos 
+WHERE data_de_nascimento < '2009-01-01';
+
+SELECT nome, data_de_nascimento 
+FROM alunos 
+WHERE YEAR(data_de_nascimento) < 2009;
 
 ```
 ![Relatório 1](resultados_alunos/relatorio1.jpg)
@@ -226,6 +232,7 @@ SELECT nome, primeira_nota, segunda_nota, ROUND(AVG((primeira_nota + segunda_not
 ```sql
 
 -- 7ª Digitação (SQL para criar a consulta acima)
+SELECT titulo, carga_horaria, (carga_horaria * 0.25) AS "LIMITE DE FALTAS" FROM cursos;
 
 ```
 ![Relatório 3](resultados_alunos/relatorio3.jpg)
@@ -245,6 +252,22 @@ SELECT nome, area_de_atuacao FROM professores WHERE area_de_atuacao LIKE "%desen
 ```sql
 
 -- 9ª Digitação (SQL para criar a consulta acima)
+SELECT COUNT(area_de_atuacao) AS "Quantidade de professores 1" 
+FROM professores
+WHERE area_de_atuacao LIKE "%desenvolvimento%";
+
+SELECT COUNT(area_de_atuação) AS "Quantidade de professores 2" 
+FROM professores
+WHERE area_de_atuação = "desenvolvimento";
+
+SELECT COUNT(area_de_atuação) AS "Quantidade de professores 3" 
+FROM professores
+WHERE area_de_atuação LIKE "%desenvol%";
+
+SELECT COUNT(area_de_atuação) AS "Quantidade de professores 2" 
+FROM professores
+WHERE area_de_atuação = "desenvol";
+
 
 ```
 ![Relatório 5](resultados_alunos/relatorio5.jpg)
@@ -264,6 +287,9 @@ SELECT alunos.nome, cursos.titulo, cursos.carga_horaria FROM alunos INNER JOIN c
 ```sql
 
 -- 11ª Digitação (SQL para criar a consulta acima)
+SELECT professores.nome, cursos.titulo 
+FROM professores 
+INNER JOIN cursos ON professores.curso_id = cursos.id ; 
 
 ```
 ![Relatório 7](resultados_alunos/relatorio7.jpg)
@@ -290,6 +316,10 @@ SELECT alunos.nome, cursos.titulo, professores.nome AS "Nome professor" FROM alu
 ```sql
 
 -- 13ª Digitação (SQL para criar a consulta acima)
+SELECT cursos.titulo AS "Materias", COUNT(alunos.curso_id) AS "Quantidade" 
+FROM alunos LEFT JOIN cursos ON alunos.curso_id = cursos.id 
+GROUP BY Materias
+ORDER BY COUNT(alunos.curso_id) DESC;
 
 ```
 ![Relatório 9](resultados_alunos/relatorio9.jpg)
@@ -308,6 +338,8 @@ SELECT alunos.nome, primeira_nota, segunda_nota, ROUND(AVG((primeira_nota + segu
 ```sql
 
 -- 15ª Digitação (SQL para criar a consulta acima)
+
+
 
 ```
 ![Relatório 11](resultados_alunos/relatorio11.jpg)
@@ -329,6 +361,7 @@ DELETE FROM alunos WHERE nome = 'Mário Calore' AND curso_id = 3;
 ```sql
 
 -- 17ª Digitação (SQL para criar a consulta acima)
+SELECT alunos.nome, cursos.titulo FROM alunos INNER JOIN cursos ON alunos.curso_id = curso.id;
 
 ```
 ![Relatório 13](resultados_alunos/relatorio13.jpg)
