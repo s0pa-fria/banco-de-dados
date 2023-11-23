@@ -337,8 +337,10 @@ SELECT alunos.nome, primeira_nota, segunda_nota, ROUND(AVG((primeira_nota + segu
 ### 11) Faça uma consulta que altere o nome do curso de Figma para Adobe XD e sua carga horária de 10 para 15.
 ```sql
 
--- 15ª Digitação (SQL para criar a consulta acima)
-
+UPDATE cursos
+SET titulo = 'AdobeXD',
+carga_horaria = 15
+WHERE id = 4;
 
 
 ```
