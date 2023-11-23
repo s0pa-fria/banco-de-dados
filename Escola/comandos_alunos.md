@@ -393,6 +393,11 @@ ROUND(primeira_nota + segunda_nota)/ 2 AS "Média das notas" FROM alunos WHERE (
 ```sql
 
 -- 20ª Digitação (SQL para criar a consulta acima)
+SELECT alunos.nome, primeira_nota, segunda_nota, 
+ROUND(primeira_nota + segunda_nota)/ 2
+ AS "Média das notas" 
+ FROM alunos 
+ WHERE ((primeira_nota + segunda_nota) / 2) <= 7;
 
 ```
 ![Desafio 3](resultados_alunos/desafio3.jpg)
